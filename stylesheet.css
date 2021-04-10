@@ -2,3 +2,12 @@ iframe {
   max-width: 100%;
 }
 
+figure {
+    display: inline-block;
+    text-align: center;
+}
+
+figcaption {
+  padding: 1px;
+  text-align: center;
+}
