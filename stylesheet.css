@@ -17,8 +17,8 @@ figcaption {
 
 .flip-box {
   background-color: transparent;
-  width: 400px;
-  height: 400px;
+  width: 350px;
+  height: 350px;
   border: transparent;
   perspective: 1000px;
 }
