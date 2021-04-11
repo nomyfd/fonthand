@@ -47,18 +47,19 @@
 
   
     
+	
+	
     
     
-    <button class="collapsible">
-    <img src="additionalworkbutton.png" style="margin:1.5em"; width="300" height="230" alt="addition work">
-    </button>
-<div class="content" max-width="400">
-  
-  
-  
-  <div class="row">
-  <div class="column left">
-    <p align="right">Directoral Work</p>
+    <div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="https://i.pinimg.com/originals/19/7b/36/197b365922d1ea3aa1a932ff9bbda4a6.png" style="margin:1.5em"; width="162" height="100" alt="nomy fox-dichter dorothea">
+    </div>
+    <div class="flip-box-back">
+      <div class="row">
+  <div class="column left" >
+    <p align="center"><b>Directoral Work</b></p>
   </div>
   <div class="column right">
     <p>
@@ -135,6 +136,8 @@
   </div>
 </div>
 </div>
+    </div>
+  </div>
     
 
 
@@ -150,22 +153,7 @@
   
   
   
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.maxHeight){
-      content.style.maxHeight = null;
-    } else {
-      content.style.maxHeight = content.scrollHeight + "px";
-    } 
-  });
-}
-</script>
  
   
   
