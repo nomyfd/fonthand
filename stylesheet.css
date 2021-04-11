@@ -35,3 +35,37 @@ figcaption {
   background-color: #ffebf8;
   
 }
+
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+.column {
+  float: left;
+  padding: 10px;
+  height: auto; 
+}
+
+.left {
+  width: 35%;
+ 
+}
+
+.right {
+  width: 65%;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+body {
+    font-family: 'PT Serif';font-size: 14px;
+}
+
