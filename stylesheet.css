@@ -21,6 +21,7 @@ figcaption {
   height: 400px;
   border: transparent;
   perspective: 1000px;
+  padding-top: 20px;
 }
 
 .flip-box-inner {
@@ -58,7 +59,6 @@ figcaption {
   height: 267px;
   font-family: "Courier New", Courier, monospace; 
   font-size: 14px;
-  padding-top: 50px;
 }
 
 
