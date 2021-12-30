@@ -1,40 +1,85 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="icon" href="favicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="stylesheet.css"> 
+  <link rel="stylesheet" href="stylesheet.css">  
   <style>
-.grid-container {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 10px;
-  padding: 10px;
+  
+  
+div {
+font-family: Courier New;
+  border-radius: 5px;
+  background-color: #4dff8b;
+  padding: 20px;
+  width: 50%;
+   display: inline-block;
+    text-align: center;
+    margin: 0; 
+    padding: 20;
 }
 
-.grid-container > div {
- 
+input[id=start] {
+font-family: Courier New;
+  width: 5.4em;
+  background-color: #f8d9ff;
+  color: black;
+  padding: 0.1em 0.1em;
+  margin: 0.6em 0.6em;
+  border: none;
+  border-radius: 0.3em;
+  cursor: pointer;
   text-align: center;
-  padding: 20px 0;
-  font-size: 11px;
+  font-size: 1.1em;
 }
 
-@media screen and (max-width: 600px) {
-  .grid-container {
-  display: grid;
-  grid-template-columns: auto;
-  grid-gap: 10px;
-  padding: 10px;
+
+input[id=end] {
+font-family: Courier New;
+  width: 5.4em;
+  background-color: #f8d9ff;
+  color: black;
+  padding: 0.1em 0.1em;
+  margin: 0.6em 0.6em;
+  border: none;
+  border-radius: 0.3em;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.1em;
 }
+
+
+input[id=diff] {
+font-family: Courier New;
+  width: 2em;
+  background-color: #f8d9ff;
+  color: black;
+  padding: 0.1em 0.1em;
+  margin: 0.6em 0.6em;
+  border: none;
+  border-radius: 0.3em;
+  cursor: text;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
 }
-</style>
+  </style>
+  
 </head>
+
+
+
 <body>
 
-<input type="time"  id="start" value="07:00" >
-<input type="time" id="end" value="13:00" >
+<div align=center>
 
-<input id="diff">
+IN <input type="time"  id="start" value="07:00" >
+<br>
+OUT <input type="time" id="end" value="13:00" > 
+<br>
+MPVS<input id="diff">
 
+</div>
 
 <script>
 var start = document.getElementById("start").value;
@@ -69,3 +114,4 @@ setInterval(function(){document.getElementById("diff").value = diff(start, end);
 
 </body>
 </html>
+
