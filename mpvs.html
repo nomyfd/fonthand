@@ -125,12 +125,14 @@ function diff(start, end) {
     adiff -= ahours * 1000 * 60 * 60;
     var aminutes = Math.floor(adiff / 1000 / 60);
     var atotal = Math.ceil((ahours + aminutes/60 - 6)*2);
-    return atotal;
-    	//if they do work past midnight
+    if(atotal>0){return atotal;}
+    else{return "0";}
+    	//if they do work past midnight-- CASE A
     }
     
     else{
-    return total;
+    if(total>0){return total;}
+    else{return "0";}
  
     }
 }
