@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet.css">  
+</head>
+<body>
+  <a href="index.html">
+      <img src="nomyheader1.png" style="margin:3em"; width="300.4" height="100"; alt="nomy fox-dichter dorothea">
+  </a>
+  
+  
+<div align=center>
+   <figure>  
+
+<iframe src="https://player.vimeo.com/video/423712034?color=c9ff23&title=0&byline=0&portrait=0" width="487.5" height="267" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+   <figcaption>
+     <img src="captiondp.png" style="margin:1.5em"; width="400" height="63" alt="my current cinematography work">
+   </figcaption>
+     
+   </figure>
+
+  <figure>
+<iframe src="https://player.vimeo.com/video/422497947?color=ffff24&title=0&byline=0&portrait=0" width="487.5" height="267" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <figcaption>
+     <img src="kesemcaption.png" style="margin:1.5em"; width="400" height="63" alt="some doc-style videography work">
+   </figcaption>
+     
+   </figure>
+   
+</div>
+  
+  
+  
+  
+<div align=center>
+   <figure>  
+
+<iframe src="https://player.vimeo.com/video/415686126?color=ff9933&title=0&byline=0&portrait=0" width="487.5" height="267" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+
+   <figcaption>
+     <img src="captionphysics.png" style="margin:1.5em"; width="400" height="63" alt="physics and film video essay">
+   </figcaption>
+     
+   </figure>
+
+  
+    
+	
+	<figure>
+    
+    
+    <div class="flip-box">
+  <div class="flip-box-inner">
+    <div class="flip-box-front">
+      <img src="additionalworkbutton.png" style="margin:1.5em" width="300" height="230" alt="addition work">
+    </div>
+    <div class="flip-box-back">
+      <div class="row">
+  <div class="column left" >
+    <p align="right"><b>Directoral Work</b></p>
+  </div>
+  <div class="column right">
+    <p>
+	<a href="https://www.crowdcast.io/e/aff21barnardstudentfilmmakers/register"><i>Birdies</i></a> (2021)<br>
+	<i>Pass It</i> (2019)<br> 
+	<a href="https://vimeo.com/343887795"><i>I Know he Takes the 1:28 Tram</i></a> (2019)<br>
+	<a href="https://vimeo.com/247082819"><i>Getting Into Character</i></a> (2017)<br>
+	<a href="https://vimeo.com/103674593"><i>Dropped Call</i></a> (2014)
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column left">
+    <p align="right"><b>Director of Photography</b></p>
+  </div>
+  <div class="column right">
+    <p>
+    <a href="https://www.facebook.com/cusketchshow/">Columbia University Sketch Show</a> (2017-2020)<br>
+    <a href="https://hayat-aljowaily.com/maybe-next-time"><i>Maybe Next Time</i></a> (2020) dir. Hayat Aljowaily<br>
+    <a href="https://www.imdb.com/title/tt11958796/"><i>Door Unlocked, Leave Package Inside</i></a> (2019) dir. Jackson Daugherty<br>
+    <a href="https://www.youtube.com/watch?v=3JSyoTGKKgs"><i>Die Happy</i></a> (2019) dir. Melissa Meade<br>
+    </p>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="column left">
+    <p align="right"><b>1st AD</b></p>
+  </div>
+  <div class="column right">
+    <p>
+	<a href="https://www.instagram.com/officialonlybusinessfilm/"><i>Only Business</i></a> (2021) dir. Allie Scott<br>
+    </p>
+  </div>
+</div>
+
+
+
+<div class="row">
+  <div class="column left">
+    <p align="right"><b>Gaffer</b></p>
+  </div>
+  <div class="column right">
+    <p>
+    <a href="https://www.alexibrottenstreich.com/film?lightbox=dataItem-k8g862k7"><i>You Still Love Me, Right?</i></a> (2020) dir. Lexi Brielle<br>
+    <i>Mirror Next Door</i> (2020) dir. Clio Yang<br>
+    <i>I Want to Take a Breath That is True</i> (2019) dir. Janhavi Asthana<br>
+    <i>Navigare a Vista</i> (2019) dir. Martino Chiappa<br>
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column left">
+    <p align="right"><b>1st AC</b></p>
+  </div>
+  <div class="column right">
+    <p>
+    <a href="https://www.imdb.com/title/tt14410456/?ref_=rvi_tt"><i>Viral</i></a> (2020, webseries) dir. Miles Blim, Camille Casmier
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column left">
+    <p align="right"><b>Set PA</b></p>
+  </div>
+  <div class="column right">
+    <p>
+	<a href="https://www.imdb.com/title/tt10653784/"><i>Gossip Girl Season 1</i></a> (2021) Patch Bay Productions on HBO<br>
+	<a href="https://www.imdb.com/title/tt14450082/"><i>Like Blood</i></a> (2021) dir. Marc Louis<br>
+   	<i>Parts</i> (2020) dir. Brenna Webb<br> 
+	<a href="https://www.imdb.com/title/tt12147040/?ref_=nm_knf_t3"><i>Consecration</i></a> (2019) dir. Jake Huebner<br>
+	    
+
+    </p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="column left">
+    <p align="right"><b>Office PA</b></p>
+  </div>
+  <div class="column right">
+    <p>
+	    <a href="https://www.imdb.com/title/tt13976884/?ref_=nm_flmg_dr_3"><i>Beau</i></a> (2020) dir. Constance Tsang
+    </p>
+  </div>
+</div>
+</div>
+    </div>
+  </div>
+    
+</figure>
+
+
+   
+</div>
+  
+  
+	
+
+	
+	
+	
+	
+	
+<div align=center>
+
+<figure>
+<a href="about.html">
+      <img src="aboutbutton.png" style="margin:5em"; width="185.2" height="55" alt="about">
+</a>
+</figure>
+
+<figure>	
+<a href="projects.html">
+      <img src="projectsbutton.png" style="margin:5em"; width="289"; height="96.2"; padding-top="300px"; alt="other media projects">
+</a>
+</figure>	
+	
+</div>  
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
+  
+  
+<div align=center>
+  
+	
+<figure>	
+<a href="https://drive.google.com/file/d/1qr-fGtqjO5Pus9uGWCUB-Qn2MKffQUus/view">
+      <img src="resumebutton.png" style="margin:5em"; width="91" height="32.2" alt="resume">
+</a>
+</figure>	
+
+<figure>	
+<a href="https://vimeo.com/nomyfoxdichter">
+      <img src="vimeobutton.png" style="margin:5em"; width="73.8" height="28" alt="vimeo">
+</a>
+</figure>	
+	
+<figure>  
+<a href="https://www.linkedin.com/in/nomy-fox-dichter-2399a9198/">
+      <img src="linkedinbutton.png" style="margin:5em"; width="110" height="37.2" alt="linkedin">
+</a>
+</figure>	
+	
+</div>  
+	
+	
+
+
+	
+ 
+	
+	
+	
+<script type="text/javascript">
+var sc_project=12676245; 
+var sc_invisible=1; 
+var sc_security="ffd971b1"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics Made Easy -
+Statcounter" href="https://statcounter.com/" target="_blank"><img
+class="statcounter" src="https://c.statcounter.com/12676245/0/ffd971b1/1/"
+alt="Web Analytics Made Easy - Statcounter"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+
+
+
+ 
+  
+  
+  
+  
+</body>
+</body>
+</html>
