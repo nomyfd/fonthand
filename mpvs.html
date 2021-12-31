@@ -6,17 +6,20 @@
   <link rel="stylesheet" href="stylesheet.css">  
   <style>
   
-  body{background-color: #d9f9ff;
-  }
-  .center {
+
+body{background-color: #d9f9ff;
+}
+  
+.center {
+-webkit-appearance: none;
 position: absolute;
 left: 50%;
 top: 50%;
 transform: translate(-50%, -50%);
 }
 
-
 div {
+-webkit-appearance: none;
 font-family: Courier New;
   border-radius: 0.3em;
   background-color: #4dff8b;
@@ -31,7 +34,8 @@ font-family: Courier New;
  	font-style: italic;
 }
 
-input[id=start] {
+#start, #end {
+-webkit-appearance: none;
 font-family: Courier New;
   width: 5.4em;
   background-color: #f8d9ff;
@@ -42,10 +46,12 @@ font-family: Courier New;
   border-radius: 0.3em;
   cursor: pointer;
   font-size: 2em;
+
 }
 
 
-input[id=end] {
+#ndbout, #ndbin, #lunchout, #lunchin{
+-webkit-appearance: none;
 font-family: Courier New;
   width: 5.4em;
   background-color: #f8d9ff;
@@ -55,14 +61,14 @@ font-family: Courier New;
   border: none;
   border-radius: 0.3em;
   cursor: pointer;
-  text-align: center;
-  font-size: 2em;
-}
+  font-size: 1em;
 
+}
 
 input[id=diff] {
+-webkit-appearance: none;
 font-family: Courier New;
-  width: 2em;
+  width: 4em;
   background-color: #f8d9ff;
   color: black;
   padding: 0.1em 0.1em;
@@ -85,10 +91,23 @@ font-family: Courier New;
 
 <div class="center">
 
-IN <input type="time"  id="start" value="07:00" >
+CALL <input type="time"  id="start" value="07:00" >
 <br>
-OUT <input type="time" id="end" value="13:00" > 
+WRAP <input type="time" id="end" value="13:00" > 
 <br>
+
+
+<input type="time"  id="ndbout" value="" >
+<br>
+<input type="time" id="ndbin" value="" > 
+<br>
+
+
+LUNCH OUT <input type="time"  id="lunchout" value="" >
+<br>
+LUNCH IN <input type="time" id="lunchin" value="" > 
+<br>
+
 MPVS<input id="diff">
 
 </div>
@@ -96,17 +115,33 @@ MPVS<input id="diff">
 <script>
 var start = document.getElementById("start").value;
 var end = document.getElementById("end").value;
+var ndbout = document.getElementById("ndbout").value; 
+var ndbin = document.getElementById("ndbin").value;
+var lunchin = document.getElementById("lunchin").value; 
+var lunchout = document.getElementById("lunchout").value;
 
-document.getElementById("start").onchange = function() {diff(start,end)};
-document.getElementById("end").onchange = function() {diff(start,end)};
+document.getElementById("start").onchange = function() {diff(start,end, ndbout,ndbin,lunchout,lunchin)};
+document.getElementById("end").onchange = function() {diff(start,end, ndbout,ndbin,lunchout,lunchin)};
+document.getElementById("ndbout").onchange = function() {diff(start,end, ndbout,ndbin,lunchout,lunchin)};
+document.getElementById("ndbin").onchange = function() {diff(start,end, ndbout,ndbin,lunchout,lunchin)};
+document.getElementById("lunchin").onchange = function() {diff(start,end, ndbout,ndbin,lunchout,lunchin)};
+document.getElementById("lunchout").onchange = function() {diff(start,end, ndbout,ndbin,lunchout,lunchin)};
 
 
-function diff(start, end) {
+function diff(start, end, ndbout, ndbin, lunchout, lunchin) {
     start = document.getElementById("start").value; 
     end = document.getElementById("end").value; 
+    ndbout = document.getElementById("ndbout").value; 
+    ndbin = document.getElementById("ndbin").value;
+    lunchin = document.getElementById("lunchin").value; 
+    lunchout = document.getElementById("lunchout").value;
     
     start = start.split(":");
     end = end.split(":");
+    ndbin = ndbin.split(":");
+    ndbout = ndbout.split(":");
+    lunchin = lunchin.split(":");
+    lunchout = lunchout.split(":");
     
     var startDate = new Date(2021, 3, 24, start[0], start[1], 0);
     var endDate = new Date(2021, 3, 24, end[0], end[1], 0);
@@ -115,9 +150,8 @@ function diff(start, end) {
     diff -= hours * 1000 * 60 * 60;
     var minutes = Math.floor(diff / 1000 / 60);
     var total = Math.ceil((hours + minutes/60 - 6)*2); 
-    	//if they don't work past midnight
-    
-    if (endDate.getTime()<startDate.getTime()){
+    	//if they don't work past midnight and don't break for lunch or NDB-- CASE 0
+        
     var astartDate = new Date(2021, 3, 24, start[0], start[1], 0);
     var afterDate = new Date(2021, 3, 25, end[0], end[1], 0);
     var adiff = afterDate.getTime() - astartDate.getTime();
@@ -125,21 +159,132 @@ function diff(start, end) {
     adiff -= ahours * 1000 * 60 * 60;
     var aminutes = Math.floor(adiff / 1000 / 60);
     var atotal = Math.ceil((ahours + aminutes/60 - 6)*2);
-    if(atotal>0){return atotal;}
-    else{return "0";}
-    	//if they do work past midnight-- CASE A
-    }
+    	//if they do work past midnight and don't break for lunch or NDB-- CASE A
+        
+    var bstartDate = new Date(2021, 3, 24, start[0], start[1], 0);
+    var bendDate = new Date(2021, 3, 24, lunchout[0], lunchout[1], 0);
+    var bbDate = new Date(2021, 3, 24, lunchin[0], lunchin[1], 0);
+    var bdiff = bendDate.getTime() - bstartDate.getTime();
+    var bbdiff = endDate.getTime() - bbDate.getTime();
+    var bhours = Math.floor(bdiff / 1000 / 60 / 60);
+    var bbhours = Math.floor(bbdiff / 1000 / 60 / 60);
+    bdiff -= bhours * 1000 * 60 * 60;
+    bbdiff -= bbhours * 1000 * 60 * 60;
+    var bminutes = Math.floor(bdiff / 1000 / 60);
+    var bbminutes = Math.floor(bbdiff / 1000 / 60);
+    var btotal = Math.ceil((bhours + bminutes/60 - 6)*2); 
+    var bbtotal = Math.ceil((bbhours + bbminutes/60 - 6)*2);
+    	//if they don't work past midnight and do break for lunch but don't NDB-- CASE B
     
-    else{
-    if(total>0){return total;}
-    else{return "0";}
- 
-    }
+    var ccDate = new Date(2021, 3, 25, lunchin[0], lunchin[1], 0);
+    var ccdiff = afterDate.getTime() - ccDate.getTime();
+    var cchours = Math.floor(ccdiff / 1000 / 60 / 60);
+    ccdiff -= cchours * 1000 * 60 * 60;
+    var ccminutes = Math.floor(ccdiff / 1000 / 60);
+    var cctotal = Math.ceil((cchours + ccminutes/60 - 6)*2);
+    	//if they do work past midnight and do break for lunch but don't NDB and are back in before midnight (with btotal L)-- CASE C
+        
+    var dendDate = new Date(2021, 3, 25, lunchout[0], lunchout[1], 0);
+    var ddiff = dendDate.getTime() - bstartDate.getTime();
+    var dhours = Math.floor(ddiff / 1000 / 60 / 60);
+    ddiff -= dhours * 1000 * 60 * 60;
+    var dminutes = Math.floor(ddiff / 1000 / 60);
+    var dtotal = Math.ceil((dhours + dminutes/60 - 6)*2); 
+    	//if they do work past midnight and do break for lunch but don't NDB and break after midnight (with bbtotal D)-- CASE D
+        
+    var estartDate = new Date(2021, 3, 24, ndbin[0], ndbin[1], 0);
+    var ediff = bendDate.getTime() - estartDate.getTime();
+    var ehours = Math.floor(ediff / 1000 / 60 / 60);
+    ediff -= ehours * 1000 * 60 * 60;
+    var eminutes = Math.floor(ediff / 1000 / 60);
+    var etotal = Math.ceil((ehours + eminutes/60 - 6)*2); 
+    	//if they don't work past midnight and do break for lunch and do NDB (with bbtotal D)-- CASE E
+        
+    var fdiff = dendDate.getTime() - estartDate.getTime();
+    var fhours = Math.floor(fdiff / 1000 / 60 / 60);
+    fdiff -= fhours * 1000 * 60 * 60;
+    var fminutes = Math.floor(fdiff / 1000 / 60);
+    var ftotal = Math.ceil((fhours + fminutes/60 - 6)*2);  
+    	//if they do work past midnight and do break for lunch and do NDB and break after midnight (with bbtotal D)-- CASE F
+        
+        
+    if 	(document.getElementById("ndbout").value == document.getElementById("ndbin").value //no NDB
+    	&& document.getElementById("lunchin").value == document.getElementById("lunchout").value //no lunch
+        && document.getElementById("start").value < document.getElementById("end").value //didn't work past midnight
+        )
+        {
+        if(total>0){return total+"L";}
+    	else{return "";}
+        } // CASE 0 RETURN
+        
+    
+    else if (document.getElementById("ndbout").value == document.getElementById("ndbin").value //no NDB
+    	&& document.getElementById("lunchin").value == document.getElementById("lunchout").value //no lunch
+        && document.getElementById("start").value > document.getElementById("end").value //did work past midnight
+        )
+        {
+        if(atotal>0){return atotal+"L";}
+    	else{return "";}
+        } // CASE A RETURN
+    
+    else if (document.getElementById("ndbout").value == document.getElementById("ndbin").value //no NDB
+        && document.getElementById("start").value < document.getElementById("end").value //didn't work past midnight
+        )
+        {
+        if(btotal>0 && bbtotal>0){return btotal+"L,"+bbtotal+"D";}
+        else if(btotal>0 && bbtotal<=0){return btotal+"L"}
+        else if(btotal<=0 && bbtotal>0){return bbtotal+"D"}
+    	else{return "";}
+        } // CASE B RETURN
+        
+    else if (document.getElementById("ndbout").value == document.getElementById("ndbin").value //no NDB
+        && document.getElementById("start").value > document.getElementById("end").value //did work past midnight
+        && document.getElementById("lunchout").value > document.getElementById("end").value //broke before midnight
+        )
+        {
+        if(btotal>0 && cctotal>0){return btotal+"L,"+cctotal+"D";}
+        else if(btotal>0 && cctotal<=0){return btotal+"L"}
+        else if(btotal<=0 && cctotal>0){return cctotal+"D"}
+    	else{return "";}
+        } // CASE C RETURN
+        
+    else if (document.getElementById("ndbout").value == document.getElementById("ndbin").value //no NDB
+        && document.getElementById("start").value > document.getElementById("end").value //did work past midnight
+        && document.getElementById("lunchout").value < document.getElementById("end").value //broke after midnight
+        )
+        {
+        if(dtotal>0 && bbtotal>0){return dtotal+"L,"+bbtotal+"D";}
+        else if(dtotal>0 && bbtotal<=0){return dtotal+"L"}
+        else if(dtotal<=0 && bbtotal>0){return bbtotal+"D"}
+    	else{return "";}
+        } // CASE D RETURN
+    
+    else if (document.getElementById("start").value < document.getElementById("end").value //didn't work past midnight
+        )
+        {
+        if(etotal>0 && bbtotal>0){return etotal+"L,"+bbtotal+"D";}
+        else if(etotal>0 && bbtotal<=0){return etotal+"L"}
+        else if(etotal<=0 && bbtotal>0){return bbtotal+"D"}
+    	else{return "";}
+        } // CASE E RETURN
+
+    else if (document.getElementById("lunchout").value < document.getElementById("ndbin").value //NDB'd, broke after midnight
+        && document.getElementById("start").value > document.getElementById("end").value //did work past midnight
+        )
+        {
+        if(ftotal>0 && bbtotal>0){return ftotal+"L,"+bbtotal+"D";}
+        else if(ftotal>0 && bbtotal<=0){return ftotal+"L"}
+        else if(ftotal<=0 && bbtotal>0){return bbtotal+"D"}
+    	else{return "";}
+        } // CASE F RETURN
+        
+        
 }
 
-setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000);
+setInterval(function(){document.getElementById("diff").value = diff(start, end, ndbout, ndbin, lunchout, lunchin);}, 1000);
 </script>
 
 </body>
 </html>
+
 
