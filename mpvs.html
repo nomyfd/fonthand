@@ -126,7 +126,7 @@ font-family: Courier New;
 <body>
 
 <div id="green" class="centermpv">
-<img src="mealpenaltylogo.png" alt="meal penalty calculator " style="width:100%">
+<img src="http://nomyfd.com/mealpenaltylogo.png" alt="meal penalty calculator " style="width:100%">
 
 CALL <input type="time"  id="start" value="07:00" >
 <br>
@@ -135,9 +135,9 @@ WRAP <input type="time" id="end" value="13:00" >
 
 
 
-<button onclick="addndb()" id="buttonNDB">>add ndb</button>
+<button onclick="addndb()" id="buttonAddNDB">>add ndb</button>
 
-<button onclick="addlunch()" id="buttonLUNCH">>add lunch</button>
+<button onclick="addlunch()" id="buttonAddLUNCH">>add lunch</button>
 
 
 <div id="ndbdiv">
@@ -910,22 +910,38 @@ function diff(start, end, ndbout, ndbin, lunchout, lunchin) {
         
 }
 
+
+
 function addndb() {
-  var click = document.getElementById("ndbdiv");
-  var clickA = document.getElementById("buttonNDB");
-  if (click.style.display = "none") {
-    click.style.display = "block";
-    clickA.style.display = "none";
+  var ndbdiv = document.getElementById("ndbdiv");
+  var btnAddNDB = document.getElementById("buttonAddNDB");
+  if (ndbdiv.style.display === "none") {  
+    ndbdiv.style.display = "block";
+    btnAddNDB.innerHTML = "delete ndb<";        
   } 
+  else {
+  	ndbdiv.style.display = "none";
+    btnAddNDB.innerHTML = ">add ndb";
+    document.getElementById('ndbin').value = "00:00";
+    document.getElementById('ndbout').value = "00:00";
+    }
 }
 
+
+
 function addlunch() {
-  var clickB = document.getElementById("lunchdiv");
-  var clickC = document.getElementById("buttonLUNCH");
-  if (clickB.style.display = "none") {
-    clickB.style.display = "block";
-    clickC.style.display = "none";
+  var lunchdiv = document.getElementById("lunchdiv");
+  var btnAddLUNCH = document.getElementById("buttonAddLUNCH");
+  if (lunchdiv.style.display === "none") {
+    lunchdiv.style.display = "block";
+    btnAddLUNCH.innerHTML = "delete lunch<";    
   } 
+  else {
+  	lunchdiv.style.display = "none";
+    btnAddLUNCH.innerHTML = ">add lunch";
+    document.getElementById('lunchin').value = "00:00";
+    document.getElementById('lunchout').value = "00:00";
+    }
 }
 
 
@@ -934,8 +950,4 @@ setInterval(function(){document.getElementById("diff").value = diff(start, end, 
 
 </body>
 </html>
-
-
-
-
 
