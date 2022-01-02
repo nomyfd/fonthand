@@ -9,8 +9,27 @@
 
 body{background-color: #d9f9ff;
 }
+
+#ndbdiv {display: none}
+
+#lunchdiv {display: none}
+
+button{
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+font-family: Courier New;
+font-weight: normal;
+background-color: transparent;
+color: #156b1f;
+font: Courier;
+border: none;
+padding: none;
+font-size: 1em;
+cursor: pointer;
+
+}
   
-.center {
+.centermpv {
 -webkit-appearance: none;
 position: absolute;
 left: 50%;
@@ -18,7 +37,22 @@ top: 50%;
 transform: translate(-50%, -50%);
 }
 
-div {
+.columnmpv {
+float: left;
+width: 50%;
+}
+
+.rowmpv:after {
+content: "";
+display: table;
+clear: both;
+}
+
+.topp {padding-top: .7em;}
+
+.toppp{padding-top:.6em;}
+
+#green {
 -webkit-appearance: none;
 font-family: Courier New;
   border-radius: 0.3em;
@@ -37,10 +71,10 @@ font-family: Courier New;
 #start, #end {
 -webkit-appearance: none;
 font-family: Courier New;
-  width: 5.4em;
+
   background-color: #f8d9ff;
   color: black;
-  padding: 0.1em 0.1em;
+  padding: 0.1em 0.3em;
   margin: 0.6em 0.6em;
   border: none;
   border-radius: 0.3em;
@@ -53,9 +87,10 @@ font-family: Courier New;
 #ndbout, #ndbin, #lunchout, #lunchin{
 -webkit-appearance: none;
 font-family: Courier New;
+
   background-color: #f8d9ff;
   color: black;
-  padding: 0.1em 0.1em;
+  padding: 0.1em 0.3em;
   margin: 0.6em 0.6em;
   border: none;
   border-radius: 0.3em;
@@ -80,6 +115,8 @@ font-family: Courier New;
   font-weight: bold;
   outline: none;
 }
+
+
   </style>
   
 </head>
@@ -88,7 +125,8 @@ font-family: Courier New;
 
 <body>
 
-<div class="center">
+<div id="green" class="centermpv">
+
 
 CALL <input type="time"  id="start" value="07:00" >
 <br>
@@ -96,18 +134,54 @@ WRAP <input type="time" id="end" value="13:00" >
 <br>
 
 
-NDB out<input type="time"  id="ndbout" value="00:00" >
-<br>
-NDB in<input type="time" id="ndbin" value="00:00" > 
-<br>
+
+<button onclick="addndb()" id="buttonNDB">>add ndb</button>
+
+<button onclick="addlunch()" id="buttonLUNCH">>add lunch</button>
 
 
-LUNCH OUT <input type="time"  id="lunchout" value="00:00" >
-<br>
-LUNCH IN <input type="time" id="lunchin" value="00:00" > 
-<br>
+<div id="ndbdiv">
+<div class="rowmpv">
+<div class="columnmpv topp" align="right">
+NDB out
+</div>
+<div class="columnmpv" align="left">
+<input type="time"  id="ndbout" value="00:00" >
+</div>
+</div>
+<div class="rowmpv">
+<div class="columnmpv topp" align="right">
+NDB in
+</div>
+<div class="columnmpv" align="left">
+<input type="time" id="ndbin" value="00:00" > 
+</div>
+</div>
+</div>
 
+
+<div id="lunchdiv">
+<div class="rowmpv">
+<div class="columnmpv topp" align="right">
+LUNCH OUT 
+</div>
+<div class="columnmpv" align="left">
+<input type="time"  id="lunchout" value="00:00" >
+</div>
+</div>
+<div class="rowmpv">
+<div class="columnmpv topp" align="right">
+LUNCH IN 
+</div>
+<div class="columnmpv" align="left">
+<input type="time" id="lunchin" value="00:00" > 
+</div>
+</div>
+</div>
+
+<div>
 MPVS<input id="diff">
+</div>
 
 </div>
 
@@ -836,11 +910,31 @@ function diff(start, end, ndbout, ndbin, lunchout, lunchin) {
         
 }
 
+function addndb() {
+  var click = document.getElementById("ndbdiv");
+  var clickA = document.getElementById("buttonNDB");
+  if (click.style.display = "none") {
+    click.style.display = "block";
+    clickA.style.display = "none";
+  } 
+}
+
+function addlunch() {
+  var clickB = document.getElementById("lunchdiv");
+  var clickC = document.getElementById("buttonLUNCH");
+  if (clickB.style.display = "none") {
+    clickB.style.display = "block";
+    clickC.style.display = "none";
+  } 
+}
+
+
 setInterval(function(){document.getElementById("diff").value = diff(start, end, ndbout, ndbin, lunchout, lunchin);}, 1000);
 </script>
 
 </body>
 </html>
+
 
 
 
