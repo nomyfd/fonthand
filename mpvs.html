@@ -14,6 +14,10 @@ body{background-color: #d9f9ff;
 
 #lunchdiv {display: none}
 
+#instructionsDiv {display: none}
+
+#aboutDiv {display: none}
+
 button{
   text-decoration-line: underline;
   text-decoration-style: dotted;
@@ -26,9 +30,9 @@ border: none;
 padding: none;
 font-size: 1em;
 cursor: pointer;
-
 }
-  
+
+
 .centermpv {
 -webkit-appearance: none;
 position: absolute;
@@ -185,7 +189,27 @@ LUNCH IN
 MPVS<input id="diff">
 </div>
 
+
+
+<div style="font-size:0.8em; font-style:normal;">
+<button onclick="instructions()" id="btnShowInstructions">>how to use</button>
+<span id="instructionsDiv"><br><div style="font-size:0.85em;text-align:left;">
+Input your in time under "Call" and out time under "Wrap".  If you broke for lunch or NDB'd, add those times under "add lunch" and "add NDB", respectively.  Total meal penalties accrued will display next to "MPVS". 
 </div>
+</span>
+
+<button onclick="about()" id="btnShowAbout">>about the calculator</button>
+<span id="aboutDiv"><br><div style="font-size:0.85em;text-align:left;">
+This Meal Penalty Violation (MPVs) calculator will return how many lunch and dinner penalties you are entitled to for your work day.  After every six hours of work, meal penalty  accrue after every 30 minute interval.  This calculator does NOT account for grace being called. </div>   
+</span>
+</div>
+
+
+
+
+</div>
+
+
 
 <script>
 var start = document.getElementById("start").value;
@@ -947,9 +971,36 @@ function addlunch() {
 }
 
 
+
+function instructions() {
+  var instructionsDiv = document.getElementById("instructionsDiv");
+  if (instructionsDiv.style.display === "none") {
+    instructionsDiv.style.display = "inline";    
+  } 
+  else {
+  	instructionsDiv.style.display = "none";
+    }
+}
+
+
+
+function about() {
+  var aboutDiv = document.getElementById("aboutDiv");
+  if (aboutDiv.style.display === "none") {
+    aboutDiv.style.display = "inline";    
+  } 
+  else {
+  	aboutDiv.style.display = "none";
+    }
+}
+
+
+
+
+
+
 setInterval(function(){document.getElementById("diff").value = diff(start, end, ndbout, ndbin, lunchout, lunchin);}, 1000);
 </script>
 
 </body>
 </html>
-
