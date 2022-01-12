@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylesheet.css">  
   <style>
-  
 
 body{background-color: #d9f9ff;
 }
+
+
+
 
 #ndbdiv {display: none}
 
@@ -60,7 +62,7 @@ clear: both;
 -webkit-appearance: none;
 font-family: Courier New;
   border-radius: 0.3em;
-  background-color: #4dff8b;
+  background-color: #d4ffe3;
   padding: 1.25em;
   width: 21em;
    display: inline-block;
@@ -123,6 +125,16 @@ font-family: Courier New;
 }
 
 input[type="time"]::-webkit-calendar-picker-indicator {display: none;}
+
+@media (prefers-color-scheme: dark) {
+  body {
+  	background-color: #260600;
+  }
+  #green {
+  	-webkit-filter: invert(1);
+   	filter: invert(1);
+  }
+}
 	  
 
   </style>
@@ -1008,3 +1020,5 @@ setInterval(function(){document.getElementById("diff").value = diff(start, end, 
 
 </body>
 </html>
+
+
