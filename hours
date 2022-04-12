@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" href="favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylesheet.css">  
+  <style>
+  
+  body{background-color: #fff7de;
+}
+
+
+#beige {
+-webkit-appearance: none;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%, -50%);
+font-family: Courier New;
+  border-radius: 0.3em;
+  background-color: #fff7de;
+  padding: 1.25em;
+  width: 25em;
+   display: inline-block;
+    text-align: left;
+    margin: 0; 
+    padding: 20;
+    float: center;
+    font-size: 1em;
+
+	max-height: 100%;
+    overflow: auto;
+}
+
+input {
+-webkit-appearance: none;
+font-family: Courier New;
+
+  background-color: white;
+  color: black;
+  padding: 0.1em 0.1em;
+  margin: 0.1em 0.1em;
+  border: none;
+  border-radius: 0.3em;
+  cursor: text;
+  text-align: center;
+  font-size: 1em;
+  font-weight: bold;
+  outline: none;
+}
+
+  
+  </style>
+  
+</head>
+<body>
+
+<div id="beige">
+<label for="start">In at</label>
+<input id="start" type="time" value="09:00">
+<br>
+
+<label for="start">broke for a</label>
+<input id="lunch" min="0" max="60" type="number" value="0" step="30">
+<label for="lunch">minute lunch, </label>
+<br>
+<label for="end">and out at</label>
+<input id="end" type="time" value="10:00">
+<br>
+<label for="diff" style="text-decoration-line:underline;text-decoration-style:wavy">Net hours:</label>
+<output id="diff" style="font-weight:bold;font-size:1.2em">
+
+</div>
+
+
+<script>
+var start = document.getElementById("start").value;
+var end = document.getElementById("end").value;
+
+document.getElementById("start").onchange = function() {diff(start,end)};
+document.getElementById("end").onchange = function() {diff(start,end)};
+
+function diff(start, end) {
+    start = document.getElementById("start").value; 
+    end = document.getElementById("end").value; 
+    lunch = document.getElementById("lunch").value;
+    start = start.split(":");
+    end = end.split(":");
+    var startDate = new Date(2021, 3, 24, start[0], start[1], 0);
+    var endDate = new Date(2021, 3, 24, end[0], end[1], 0);
+    var endAfterDate = new Date(2021, 3, 25, end[0], end[1], 0);
+    var diff = endDate.getTime() - startDate.getTime();
+    var adiff = endAfterDate.getTime() - startDate.getTime();
+    var hours = Math.floor(diff / 1000 / 60 / 60);
+    var ahours = Math.floor(adiff / 1000 / 60 / 60);
+    diff -= hours * 1000 * 60 * 60;
+    adiff -= ahours * 1000 * 60 * 60;
+    var bminutes = Math.floor(diff / 1000 / 60 );
+    var aaminutes = Math.floor(adiff / 1000 / 60);
+    var minutes = Math.ceil(bminutes/6);   
+    var aminutes = Math.ceil(aaminutes/6);
+    var lunchtime = Math.floor(lunch/6);
+    if (start<end)
+    {return hours + Math.floor(minutes - lunchtime)/10;}
+    else
+    {return ahours + aminutes/10 - lunchtime/10;}
+    
+}
+
+
+
+
+setInterval(function(){document.getElementById("diff").value = diff(start, end);}, 1000);
+
+
+
+</script>
+</body>
+</html>
+
+
+
